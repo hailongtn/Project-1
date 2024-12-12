@@ -126,7 +126,7 @@ function getSubCat(val) {
                                         <div class="col-sm-12">
                                             <div class="card-box">
                                                 <h4 class="m-b-30 m-t-0 header-title"><b>Current Post Image</b></h4>
-                                                <img src="post_images/<?php echo htmlentities($row['post_image']);?>" width="300" />
+                                                <img src="postimages/<?php echo htmlentities($row['post_image']);?>" width="300" />
                                                 <br />
                                             </div>
                                         </div>

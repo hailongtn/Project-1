@@ -1,11 +1,4 @@
-<!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
---><?php 
+<?php 
    session_start();
    include('includes/config.php');
    error_reporting(0);
@@ -18,18 +11,18 @@
    // For adding post  
    if(isset($_POST['submit']))
    {
-   $posttitle=$_POST['posttitle'];
+   $post_title=$_POST['post_title'];
    $catid=$_POST['category'];
    $subcatid=$_POST['subcategory'];
    $post_details=$_POST['postdescription'];
    $postedby=$_SESSION['login'];
-   $arr = explode(" ",$posttitle);
+   $arr = explode(" ",$post_title);
    $url=implode("-",$arr);
    $imgfile=$_FILES["post_image"]["name"];
    // get the image extension
    $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
    // allowed extensions
-   $allowed_extensions = array(".jpg","jpeg",".png",".gif");
+   $allowed_extensions = array(".jpg","jpeg",".png",".gif", ".PNG");
    // Validation for allowed extensions .in_array() function searches an array for a specific value.
    if(!in_array($extension,$allowed_extensions))
    {
@@ -40,10 +33,10 @@
    //rename the image file
    $imgnewfile=md5($imgfile).$extension;
    // Code for move image into directory
-   move_uploaded_file($_FILES["post_image"]["tmp_name"],"post_images/".$imgnewfile);
+   move_uploaded_file($_FILES["post_image"]["tmp_name"],"postimages/".$imgnewfile);
    
    $status=1;
-   $query=mysqli_query($con,"insert into posts(post_title,category_id,subcategory_id,post_details,post_url,is_active,post_image,posted_by) values('$posttitle','$catid','$subcatid','$post_details','$url','$status','$imgnewfile','$postedby')");
+   $query=mysqli_query($con,"insert into posts(post_title,category_id,subcategory_id,post_details,post_url,is_active,post_image,posted_by) values('$post_title','$catid','$subcatid','$post_details','$url','$status','$imgnewfile','$postedby')");
    if($query)
    {
    $msg="Post successfully added ";
@@ -121,7 +114,7 @@ function getSubCat(val) {
             <form name="addpost" method="post" class="row" enctype="multipart/form-data">
                 <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Post Title</label>
-                    <input type="text" class="form-control" id="posttitle" name="posttitle" placeholder="Enter title" required>
+                    <input type="text" class="form-control" id="post_title" name="post_title" placeholder="Enter title" required>
                 </div>
                 <div class="form-group col-md-6">
                     <label for="exampleInputEmail1">Category</label>

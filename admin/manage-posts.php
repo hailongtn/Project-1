@@ -69,13 +69,13 @@
                                             <tr>
                                                 <th>Title</th>
                                                 <th>Category</th>
-                                                <th>Subcategory</th>
+                                                <th>subcategory</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
                                             <?php
-                           $query=mysqli_query($con,"select posts.id as postid,posts.PostTitle as title,tblcategory.CategoryName as category,tblsubcategory.Subcategory as subcategory from posts left join tblcategory on tblcategory.id=posts.CategoryId left join tblsubcategory on tblsubcategory.SubCategoryId=posts.SubCategoryId where posts.is_active=1 ");
+                           $query=mysqli_query($con,"select posts.id as postid,posts.post_title as title,category.category_name as category,subcategory.subcategory as subcategory from posts left join category on category.id=posts.category_id left join subcategory on subcategory.subcategory_id=posts.subcategory_id where posts.is_active=1 ");
                            $rowcount=mysqli_num_rows($query);
                            if($rowcount==0)
                            {
@@ -126,12 +126,5 @@
             </div>
             <!-- content -->
             <?php include('includes/footer.php');?>
-            <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
             <?php } ?>

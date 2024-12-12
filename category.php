@@ -1,5 +1,12 @@
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php');
+?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
+
 <head>
 
     <!--- basic page needs
@@ -37,15 +44,15 @@
 
     <!-- preloader
     ================================================== -->
-    <div id="preloader"> 
-    	<div id="loader"></div>
+    <div id="preloader">
+        <div id="loader"></div>
     </div>
 
 
     <!-- header
     ================================================== -->
     <header class="s-header s-header--opaque">
-            <?php include('includes/header.php');?>
+        <?php include('includes/header.php'); ?>
     </header> <!-- end s-header -->
 
 
@@ -56,479 +63,130 @@
 
         <!-- page header
         ================================================== -->
+        <?php
+
+        if ($_GET['catid'] != '') {
+            $_SESSION['catid'] = intval($_GET['catid']);
+        }
+
+
+
+        if (isset($_GET['pageno'])) {
+            $pageno = $_GET['pageno'];
+        } else {
+            $pageno = 1;
+        }
+        $no_of_records_per_page = 8;
+        $offset = ($pageno - 1) * $no_of_records_per_page;
+
+
+        $total_pages_sql = "SELECT COUNT(*) FROM posts";
+        $result = mysqli_query($con, $total_pages_sql);
+        $total_rows = mysqli_fetch_array($result)[0];
+        $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+
+        $query=mysqli_query($con, "select posts.id as pid,posts.post_title as post_title,posts.post_image,category.category_name as category,subcategory.subcategory as subcategory,posts.post_details as postdetails,posts.posting_date as postingdate,posts.post_url as url from posts left join category on category.id=posts.category_id left join  subcategory on  subcategory.subcategory_id=posts.subcategory_id where posts.category_id='".$_SESSION['catid']."' and posts.is_active=1 order by posts.id desc LIMIT $offset, $no_of_records_per_page");
+
+        $rowcount=mysqli_num_rows($query);
+        if($rowcount == 0) {
+            echo "No record found";
+        } else {
+            while ($row = mysqli_fetch_array($query)) {
+
+
+        ?>
         <div class="s-pageheader">
             <div class="row">
                 <div class="column large-12">
                     <h1 class="page-title">
                         <span class="page-title__small-type">Category</span>
-                        Lifestyle
+                         <?php echo htmlentities($row['category']);?> 
+                        
                     </h1>
                 </div>
             </div>
-        </div> <!-- end s-pageheader-->
-        
-
+        </div>
+        <?php }}?>
+        <!-- end s-pageheader-->
         <!-- masonry
         ================================================== -->
-        <div class="s-bricks s-bricks--half-top-padding">
+        <?php
 
+        if ($_GET['catid'] != '') {
+            $_SESSION['catid'] = intval($_GET['catid']);
+        }
+
+
+
+        if (isset($_GET['pageno'])) {
+            $pageno = $_GET['pageno'];
+        } else {
+            $pageno = 1;
+        }
+        $no_of_records_per_page = 8;
+        $offset = ($pageno - 1) * $no_of_records_per_page;
+
+
+        $total_pages_sql = "SELECT COUNT(*) FROM posts";
+        $result = mysqli_query($con, $total_pages_sql);
+        $total_rows = mysqli_fetch_array($result)[0];
+        $total_pages = ceil($total_rows / $no_of_records_per_page);
+
+
+        $query=mysqli_query($con, "select posts.id as pid,posts.post_title as post_title,posts.post_image,category.category_name as category,subcategory.subcategory as subcategory,posts.post_details as postdetails,posts.posting_date as postingdate,posts.post_url as url from posts left join category on category.id=posts.category_id left join  subcategory on  subcategory.subcategory_id=posts.subcategory_id where posts.category_id='".$_SESSION['catid']."' and posts.is_active=1 order by posts.id desc LIMIT $offset, $no_of_records_per_page");
+
+        $rowcount=mysqli_num_rows($query);
+        if($rowcount == 0) {
+            echo "No record found";
+        } else {
+            while ($row = mysqli_fetch_array($query)) {
+
+
+        ?>
+        
+        <div class="s-bricks s-bricks--half-top-padding">
             <div class="masonry">
                 <div class="bricks-wrapper h-group">
 
                     <div class="grid-sizer"></div>
 
-                    <div class="lines">
-                        <span></span>
-                        <span></span>
-                        <span></span>
-                    </div>
+                    <<article class="brick entry" data-aos="fade-up">
 
-                    <article class="brick entry" data-aos="fade-up">
-    
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/macbook-600.jpg" 
-                                     srcset="images/thumbs/masonry/macbook-600.jpg 1x, images/thumbs/masonry/macbook-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="https://www.dreamhost.com/r.cgi?287326">Need Web Hosting for Your Websites?</a></h1>
-                                
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="https://www.dreamhost.com/r.cgi?287326">StyleShout</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="https://www.dreamhost.com/r.cgi?287326">Site Partner</a>
-                                    </span>
+                                <div class="entry__thumb">
+                                    <a href="single-post.php?nid=<?php echo htmlentities($row['pid']) ?>"><a class="thumb-link">
+                                            <img src="admin/postimages/<?php echo htmlentities($row['post_image']); ?>">
+                                        </a>
                                 </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Need hosting? We would highly recommend DreamHost.
-                                Enjoy 100% in-house support, guaranteed performance and uptime, 1-click installs, and a super-intuitive control panel to make managing your websites and projects easy.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="https://www.dreamhost.com/r.cgi?287326">Learn More</a>
-                        </div> <!-- end entry__text -->
-                    
-                    </article> <!-- end article -->
 
-                    <article class="brick entry" data-aos="fade-up">
-        
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/woodcraft-600.jpg" 
-                                     srcset="images/thumbs/masonry/woodcraft-600.jpg 1x, images/thumbs/masonry/woodcraft-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-        
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">Just a Normal Simple Blog Post.</a></h1>
-        
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Naruto Uzumaki</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Design</a> 
-                                        <a href="#">Photography</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
-        
-                    </article> <!-- end entry -->
-    
-                    <article class="brick entry" data-aos="fade-up">
-    
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/tulips-600.jpg" 
-                                     srcset="images/thumbs/masonry/tulips-600.jpg 1x, images/thumbs/masonry/tulips-1200.jpg 2x" alt="">
-                            </a>
-                        </div>  <!-- end entry__thumb -->
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">10 Interesting Facts About Caffeine.</a></h1>
-                                
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Shikamaru Nara</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Health</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
-                    
-                    </article> <!-- end article -->
-
-                    <article class="brick entry" data-aos="fade-up">
-        
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/grayscale-600.jpg" 
-                                     srcset="images/thumbs/masonry/grayscale-600.jpg 1x, images/thumbs/masonry/grayscale-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-        
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">5  Grayscale Coloring Techniques.</a></h1>
-
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Susuke Uchiha</a>
-                                        </span>
-                                    </span>
-                                    <span class="cat-links">
-                                        <a href="#">Design</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
-                        
-                    </article> <!-- end article -->
-
-                    <article class="brick entry" data-aos="fade-up">
-    
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/walk-600.jpg" 
-                                     srcset="images/thumbs/masonry/walk-600.jpg 1x, images/thumbs/masonry/walk-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">Using Repetition and Patterns in Photography.</a></h1>
-                                
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Naruto Uzumaki</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Work</a> 
-                                        <a href="#">Lifestyle</a>
-                                    </span>
-                                </div>
-                                
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
-                    
-                    </article> <!-- end article -->
-    
-                    <article class="brick entry" data-aos="fade-up">
-            
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/jump-600.jpg" 
-                                     srcset="images/thumbs/masonry/jump-600.jpg 1x, images/thumbs/masonry/jump-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-            
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">Create Meaningful Family Moments.</a></h1>
-                                
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Naruto Uzumaki</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Family</a>
-                                        <a href="#">Relationship</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
+                                <div class="entry__text">
+                                    <div class="entry__header">
+                                        <h1 class="entry__title"><a href="single-post.php?nid=<?php echo htmlentities($row['pid']) ?>" class="card-title text-decoration-none text-dark"><?php echo htmlentities($row['post_title']); ?></a></h1>
+                                        <div class="entry__meta">
+                                            <span class="cat-links">
+                                                <a class="badge bg-success text-decoration-none link-light" href="category.php?catid=<?php echo htmlentities($row['cid']) ?>" style="color:#00000"><?php echo htmlentities($row['category']); ?></a>
+                                                <!--Subcategory--->
+                                                <a class="" style="color:#00000"><?php echo htmlentities($row['subcategory']); ?></a>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="entry__excerpt">
+                                        <p>
+                                            Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
+                                        </p>
+                                    </div>
+                                </div> <!-- end entry__text -->
                             
+                        <?php } ?>
                     </article> <!-- end article -->
-    
-                    <article class="brick entry" data-aos="fade-up">
-    
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/real-600.jpg" 
-                                     srcset="images/thumbs/masonry/real-600.jpg 1x, images/thumbs/masonry/real-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">How We Live Is What Makes Us Real.</a></h1>
-                                
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Naruto Uzumaki</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Travel</a> 
-                                        <a href="#">Vacation</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
                     
-                    </article> <!-- end article -->
-    
-                    <article class="brick entry" data-aos="fade-up">
-    
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/lamp-600.jpg" 
-                                     srcset="images/thumbs/masonry/lamp-600.jpg 1x, images/thumbs/masonry/lamp-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">Symmetry In Modern Design.</a></h1>
-                                
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Kakakshi Hatake</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Design</a> 
-                                        <a href="#">Photography</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
                     
-                    </article> <!-- end article -->
-
-                    <article class="brick entry" data-aos="fade-up">
-    
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/clock-600.jpg" 
-                                     srcset="images/thumbs/masonry/clock-600.jpg 1x, images/thumbs/masonry/clock-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">10 Tips for Managing Time Effectively.</a></h1>
-    
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">John Doe</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Lifestyle</a>
-                                        <a href="#">Work</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
-                    
-                    </article> <!-- end article -->
-
-                    <article class="brick entry" data-aos="fade-up">
-    
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/beetle-600.jpg" 
-                                     srcset="images/thumbs/masonry/beetle-600.jpg 1x, images/thumbs/masonry/beetle-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">Throwback To The Good Old Days.</a></h1>
-                                
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Sakura Haruno</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Lifestyle</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
-                    
-                    </article> <!-- end article -->
-
-                    <article class="brick entry" data-aos="fade-up">
-    
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/phone-and-keyboard-600.jpg" 
-                                     srcset="images/thumbs/masonry/phone-and-keyboard-600.jpg 1x, images/thumbs/masonry/phone-and-keyboard-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">3 Reasons to Keep Your Workplace Tidy.</a></h1>
-                                
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Sakura Haruno</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Work</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
-                    
-                    </article> <!-- end article -->
-
-                    <article class="brick entry" data-aos="fade-up">
-    
-                        <div class="entry__thumb">
-                            <a href="single-standard.html" class="thumb-link">
-                                <img src="images/thumbs/masonry/seashore-600.jpg" 
-                                     srcset="images/thumbs/masonry/seashore-600.jpg 1x, images/thumbs/masonry/seashore-1200.jpg 2x" alt="">
-                            </a>
-                        </div> <!-- end entry__thumb -->
-    
-                        <div class="entry__text">
-                            <div class="entry__header">
-                                <h1 class="entry__title"><a href="single-standard.html">What The Beach Does to Your Brain.</a></h1>
-                                
-                                <div class="entry__meta">
-                                    <span class="byline"">By:
-                                        <span class='author'>
-                                            <a href="#0">Naruto Uzumaki</a>
-                                    </span>
-                                </span>
-                                    <span class="cat-links">
-                                        <a href="#">Health</a> 
-                                        <a href="#">Vacation</a>
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="entry__excerpt">
-                                <p>
-                                Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
-                                </p>
-                            </div>
-                            <a class="entry__more-link" href="#0">Read More</a>
-                        </div> <!-- end entry__text -->
-                    
-                    </article> <!-- end article -->
+                <?php } ?>
 
                 </div> <!-- end brick-wrapper -->
 
             </div> <!-- end masonry -->
 
-            <div class="row">
-                <div class="column large-12">
-                    <nav class="pgn">
-                        <ul>
-                            <li>
-                                <span class="pgn__prev" href="#0">
-                                    Prev
-                                </span>
-                            </li>
-                            <li><a class="pgn__num" href="#0">1</a></li>
-                            <li><span class="pgn__num current">2</span></li>
-                            <li><a class="pgn__num" href="#0">3</a></li>
-                            <li><a class="pgn__num" href="#0">4</a></li>
-                            <li><a class="pgn__num" href="#0">5</a></li>
-                            <li><span class="pgn__num dots">…</span></li>
-                            <li><a class="pgn__num" href="#0">8</a></li>
-                            <li>
-                                <span class="pgn__next" href="#0">
-                                    Next
-                                </span>
-                            </li>
-                        </ul>
-                    </nav> <!-- end pgn -->
-                </div> <!-- end column -->
-            </div> <!-- end row -->
 
         </div> <!-- end s-bricks -->
 
@@ -537,7 +195,7 @@
 
     <!-- footer
     ================================================== -->
-    <?php include('includes/footer.php');?>
+    <?php include('includes/footer.php'); ?>
 
 
     <!-- Java Script
