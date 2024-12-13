@@ -26,7 +26,7 @@
                         <h4 class="page-title">Dashboard</h4>
                         <ol class="breadcrumb p-0 m-0">
                             <li>
-                                <a href="#">NewsPortal</a>
+                                <a href="#">The Bridge Website</a>
                             </li>
                             <li>
                                 <a href="#">Admin</a>
@@ -39,21 +39,15 @@
                     </div>
                 </div>
             </div>
-            <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
-            <!-- end row -->
+          
+
+            
             <div class="row">
                 <div class="col-md-4">
                     <div class="card-box h-100">
                         <div class="card-header">
-                            <h2 class="card-title mb-2">Welcome MH RONY </h2>
-                            <span class="d-block mb-4 text-nowrap">Freelancer from Bangladesh</span>
+                            <h2 class="card-title mb-2">Welcome T2406E </h2>
+                            <span class="d-block mb-4 text-nowrap"></span>
                         </div>
                         <br><br>
                         
@@ -62,7 +56,7 @@
                         <div class="card-body">
                             <div class="row ">
                                 <div class="card-header">
-                                    <h4 class="card-title m-0">Visits of 2023</h4>
+                                    <h4 class="card-title m-0"></h4>
                                 </div>
                                 <div id="chart">
                                     <apexchart type="radialBar" height="265" :options="chartOptions" :series="series"></apexchart>
@@ -71,12 +65,7 @@
                         </div>
                     </div>
                 </div>
-                <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+              
                 <a href="manage-categories.php">
                     <div class="col-lg-2 col-md-2 col-sm-6">
                         <div class="card-box widget-box-one text-center">
@@ -121,7 +110,7 @@
                             </div>
                         </div>
                     </div>
-                    <!-- end col -->
+               
                 </a>
 
             </div>
@@ -157,14 +146,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
                                 <?php
                            $query=mysqli_query($con,"select posts.id as postid,posts.post_title as title,category.category_name as category,subcategory.subcategory as subcategory from posts left join category on category.id=posts.category_id left join subcategory on subcategory.subcategory_id=posts.subcategory_id where posts.is_active=1 ");
                            $rowcount=mysqli_num_rows($query);
@@ -198,12 +180,7 @@
     </div>
     <!-- content -->
     <?php include('includes/footer.php');?>
-    <!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+  
 </div>
 <!-- ============================================================== -->
 <!-- End Right content here -->
@@ -292,16 +269,5 @@ var options = {
 var chart = new ApexCharts(document.querySelector("#chart"), options);
 chart.render();
 </script>
-<!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->
+
 <?php } ?>
-<!--  Author Name: MH RONY.
-                        GigHub Link: https://github.com/dev-mhrony
-                        Facebook Link:https://www.facebook.com/dev.mhrony
-                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                        Visit My Website : developerrony.com -->

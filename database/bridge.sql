@@ -15,8 +15,7 @@ CREATE TABLE `info` (
 -- Dumping data for table `info`  
 --
 
-INSERT INTO `info` (`id`, `title`, `bio`, `status`) VALUES
-(1, 'cpr', '<p style=\"text-align: center;\"> CopyRight by <a href=\"https://www.youtube.com/@codecampbdofficial\">Code Camp BD</a> Design and Developer <a href=\"https://developerrony.com\">MH RONY</a> All Resalve\n                <?php echo \"20\".date(\"y\"); ?></p>', 1);
+
 
 -- --------------------------------------------------------
 
@@ -122,7 +121,8 @@ CREATE TABLE `posts` (
   `post_image` varchar(255) DEFAULT NULL,
   `view_counter` int DEFAULT NULL,
   `posted_by` varchar(255) DEFAULT NULL,
-  `last_updatedby` varchar(255) DEFAULT NULL
+  `last_updatedby` varchar(255) DEFAULT NULL,
+  `post_description` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --

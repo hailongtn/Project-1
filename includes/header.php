@@ -19,11 +19,12 @@
                     <li class="has-children">   
                         <a href="#0" title="">Categories</a>
                         <ul class="sub-menu">
-                            <li><a href="category.html">The Greatest Bridge</a></li>
-                            <li><a href="category.html">Achievements of the bridge</a></li>
-                            <li><a href="category.html">The iconic bridge & The current great bridge </a></li>
-                            <li><a href="category.html">Modern Great Bridge</a></li>
-                            <li><a href="category.html">Work</a></li>
+                            
+                        <?php $query = mysqli_query($con, "select id,category_name from category");
+                    while ($row = mysqli_fetch_array($query)) {
+                    ?>
+                       <li> <a href="category.php?catid=<?php echo htmlentities($row['id']) ?>" ><?php echo htmlentities($row['category_name']); ?></a></li>
+                    <?php } ?>
                             
                         </ul>
                     </li>
@@ -45,10 +46,10 @@
             <div class="s-header__search-inner">
                 <div class="row wide">
 
-                    <form role="search" method="get" class="s-header__search-form" action="#">
+                    <form role="search" method="get" class="s-header__search-form" action="search.php">
                         <label>
                             <span class="h-screen-reader-text">Search for:</span>
-                            <input type="search" class="s-header__search-field" placeholder="Search for..." value="" name="s" title="Search for:" autocomplete="off">
+                            <input type="search" name="searchtitle "class="s-header__search-field" placeholder="Search for..." value="" name="s" title="Search for:" autocomplete="off">
                         </label>
                         <input type="submit" class="s-header__search-submit" value="Search"> 
                     </form>

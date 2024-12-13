@@ -75,7 +75,7 @@ include('includes/config.php');
                     </div>
                 </div>
 
-            </div> <!-- end s-hero__slide -->
+            </div> 
 
             <div class="s-hero__slide">
 
@@ -184,6 +184,7 @@ include('includes/config.php');
                     <?php } ?>
 
                 </div>
+                
             </div>
 
 
@@ -220,20 +221,16 @@ include('includes/config.php');
                         $total_pages = ceil($total_rows / $no_of_records_per_page);
 
 
-                        $query = mysqli_query($con, "select posts.id as pid,posts.post_title as post_title,posts.post_image,category.category_name as category,category.id as cid,subcategory.subcategory as subcategory,posts.post_details as postdetails,posts.posting_date as postingdate,posts.post_url as url from posts left join category on category.id=posts.category_id left join  subcategory on  subcategory.subcategory_id=posts.subcategory_id where posts.is_active=1 order by posts.id desc  LIMIT $offset, $no_of_records_per_page");
+                        $query = mysqli_query($con, "select posts.id as pid,posts.post_title as post_title,posts.post_image,category.category_name as category,category.id as cid,subcategory.subcategory as subcategory,posts.post_details as postdetails,posts.posting_date as postingdate,posts.post_description as postdescription,posts.post_url as url from posts left join category on category.id=posts.category_id left join  subcategory on  subcategory.subcategory_id=posts.subcategory_id where posts.is_active=1 order by posts.id desc  LIMIT $offset, $no_of_records_per_page");
                         while ($row = mysqli_fetch_array($query)) {
                         ?>
 
-                            <div class="lines">
-                                <span> </span>
-                                <span></span>
-                                <span></span>
-                            </div>
+                        
 
                             <article class="brick entry" data-aos="fade-up">
 
                                 <div class="entry__thumb">
-                                    <a href="single-post.php?nid=<?php echo htmlentities($row['pid']) ?>"><a class="thumb-link">
+                                    <a href="single-post.php?nid=<?php echo htmlentities($row['pid']) ?>" class="thumb-link">
                                             <img src="admin/postimages/<?php echo htmlentities($row['post_image']); ?>">
                                         </a>
                                 </div>
@@ -243,15 +240,17 @@ include('includes/config.php');
                                         <h1 class="entry__title"><a href="single-post.php?nid=<?php echo htmlentities($row['pid']) ?>" class="card-title text-decoration-none text-dark"><?php echo htmlentities($row['post_title']); ?></a></h1>
                                         <div class="entry__meta">
                                             <span class="cat-links">
+                                                <!--Category-->
                                                 <a class="badge bg-success text-decoration-none link-light" href="category.php?catid=<?php echo htmlentities($row['cid']) ?>" style="color:#00000"><?php echo htmlentities($row['category']); ?></a>
                                                 <!--Subcategory--->
-                                                <a class="" style="color:#00000"><?php echo htmlentities($row['subcategory']); ?></a>
+                                                <a class="" style="color:#00000"><?php echo htmlentities($row['subcategory']); ?></a><br>
+                                                <a class="m-0"><small> Posted on <?php echo htmlentities($row['postingdate']);?></small></a>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="entry__excerpt">
-                                        <p>
-                                            Lorem ipsum Sed eiusmod esse aliqua sed incididunt aliqua incididunt mollit id et sit proident dolor nulla sed commodo est ad minim elit reprehenderit nisi officia aute incididunt velit sint in aliqua cillum in consequat consequat in culpa in anim.
+                                    <p
+                                        class="badge bg-success text-decoration-none link-light" href="category.php?catid=<?php echo htmlentities($row['cid']) ?>" style="color:#00000"><?php echo htmlentities($row['postdescription']); ?>
                                         </p>
                                     </div>
                                 </div> <!-- end entry__text -->

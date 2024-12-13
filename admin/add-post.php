@@ -15,6 +15,7 @@
    $catid=$_POST['category'];
    $subcatid=$_POST['subcategory'];
    $post_details=$_POST['postdescription'];
+   $post_description=$_POST['postsubdescription'];
    $postedby=$_SESSION['login'];
    $arr = explode(" ",$post_title);
    $url=implode("-",$arr);
@@ -36,7 +37,7 @@
    move_uploaded_file($_FILES["post_image"]["tmp_name"],"postimages/".$imgnewfile);
    
    $status=1;
-   $query=mysqli_query($con,"insert into posts(post_title,category_id,subcategory_id,post_details,post_url,is_active,post_image,posted_by) values('$post_title','$catid','$subcatid','$post_details','$url','$status','$imgnewfile','$postedby')");
+   $query=mysqli_query($con,"insert into posts(post_title,category_id,subcategory_id,post_details,post_url,is_active,post_image,posted_by,post_description) values('$post_title','$catid','$subcatid','$post_details','$url','$status','$imgnewfile','$postedby','$post_description')");
    if($query)
    {
    $msg="Post successfully added ";
@@ -143,6 +144,15 @@ function getSubCat(val) {
                         </div>
                     </div>
                 </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-box">
+                            <h4 class="m-b-30 m-t-0 header-title"><b>Post Description</b></h4>
+                            <textarea class="summernote" name="postsubdescription" required></textarea>
+                        </div>
+                    </div>
+                </div>
+
                 <div class="row">
                     <div class="col-sm-12">
                         <div class="card-box">

@@ -1,11 +1,4 @@
-        <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
---><?php 
+<?php 
    session_start();
    include('includes/config.php');
    error_reporting(0);
@@ -80,14 +73,7 @@
                            if($rowcount==0)
                            {
                            ?>
-                                            <!--  
-                           Author Name: MH RONY.
-                           GigHub Link: https://github.com/dev-mhrony
-                           Facebook Link:https://www.facebook.com/dev.mhrony
-                           Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                           for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                           Visit My Website : developerrony.com 
-                         -->
+                      
                                             <tr>
                                                 <td colspan="4" align="center">
                                                     <h3 style="color:red">No record found</h3>
@@ -98,14 +84,7 @@
                               while($row=mysqli_fetch_array($query))
                               {
                               ?>
-                                                <!--  
-                              Author Name: MH RONY.
-                              GigHub Link: https://github.com/dev-mhrony
-                              Facebook Link:https://www.facebook.com/dev.mhrony
-                              Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                              for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                              Visit My Website : developerrony.com 
-                            -->
+                            
                                             <tr>
                                                 <td><?php echo htmlentities($row['title']);?></td>
                                                 <td><?php echo htmlentities($row['category'])?></td>

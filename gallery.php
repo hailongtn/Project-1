@@ -1,11 +1,18 @@
+<?php
+session_start();
+error_reporting(0);
+include('includes/config.php');
+?>
+
 <!DOCTYPE html>
 <html class="no-js" lang="en">
+
 <head>
 
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Video Post - Calvin</title>
+    <title>Category - Calvin</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -17,7 +24,7 @@
     ================================================== -->
     <link rel="stylesheet" href="css/vendor.css">
     <link rel="stylesheet" href="css/styles.css">
-    
+
     <!-- script
     ================================================== -->
     <script src="js/modernizr.js"></script>
@@ -37,191 +44,83 @@
 
     <!-- preloader
     ================================================== -->
-    <div id="preloader"> 
-    	<div id="loader"></div>
+    <div id="preloader">
+        <div id="loader"></div>
     </div>
 
 
     <!-- header
     ================================================== -->
     <header class="s-header s-header--opaque">
-            <?php include('includes/header.php');?>
+        <?php include('includes/header.php'); ?>
     </header> <!-- end s-header -->
+<section class="s-content">
+    <div class="s-pageheader">
+            <div class="row">
+                <div class="column large-12">
+                    <h1 class="page-title" style="margin: -10%">
+                        <span class="page-title__small-type"></span>
+                        Gallery Pages
 
-
+                    </h1>
+                 
+                </div>
+            </div>
+        </div>
+</section>
     <!-- content
     ================================================== -->
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gallery</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <br></br>
-    <div class="view-image">
-        <img src="https://images.unsplash.com/photo-1668954206766-404e981f57f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60." alt="">
-        <span>X</span>
-    </div>
 
-    <div class="image-container">
-        <img src="https://images.unsplash.com/photo-1668937642482-f84271bfa5a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668954206766-404e981f57f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668891720406-947defa2e234?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668954215479-d672769a16e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyN3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668896317909-34ad725c4d97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668934805187-359213a84c9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668863699009-1e3b4118675d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668929484162-7e65c648199a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1MXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668937642482-f84271bfa5a7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwxN3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668954206766-404e981f57f7?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668891720406-947defa2e234?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyM3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668954215479-d672769a16e2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwyN3x8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668896317909-34ad725c4d97?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzMHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668934805187-359213a84c9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHwzNHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668863699009-1e3b4118675d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw0Nnx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-        <img src="https://images.unsplash.com/photo-1668929484162-7e65c648199a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxlZGl0b3JpYWwtZmVlZHw1MXx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=60" alt="">
-    </div>
-</body>
-<script>
-    let images = document.querySelectorAll(".image-container img");
-    let viewImage = document.querySelector(".view-image");
-    let fullImage = document.querySelector(".view-image img");
-    let closeBtn = document.querySelector(".view-image span");
-    for(let image of images){
-        image.addEventListener("click",function(e){
-            console.log(e);
-            viewImage.style.display = "flex";
-            fullImage.src = e.target.src;
-        })
+   
+    <?php
+    if (isset($_GET['pageno'])) {
+        $pageno = $_GET['pageno'];
+    } else {
+        $pageno = 1;
     }
-    closeBtn.addEventListener('click',function(){
-        viewImage.style.display = "none";
-    })
-</script>
-</html>
-                            
-<style>
-    *{
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
-}
+    $no_of_records_per_page = 8;
+    $offset = ($pageno - 1) * $no_of_records_per_page;
 
 
-body{
-    display: flexbox;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    width: 100vw;
-}
-
-.image-container{
-    width: 90%;
-    height: 90%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-
-}
-
-.image-container img{
-    width: 20rem;
-    height: 20rem;
-    margin: 2rem;
-    border-radius: 1rem;
-    transition: 0.5s;
-}
-
-.image-container img:hover{
-    transform: scale(1.1) rotate(3deg);
-}
+    $total_pages_sql = "SELECT COUNT(*) FROM posts";
+    $result = mysqli_query($con, $total_pages_sql);
+    $total_rows = mysqli_fetch_array($result)[0];
+    $total_pages = ceil($total_rows / $no_of_records_per_page);
 
 
-.view-image{
-    position: fixed;
-    z-index: 2;
-    height: 100%;
-    width: 100%;
-    display: none;
-    align-items: center;
-    justify-content: center;
-    background:rgb(0, 0, 0,0.9);
-}
-
-.view-image img{
-    height: 40rem;
-    width: 40rem;
-    border-radius: 2rem;
-}
-
-.view-image span{
-    color:white;
-    font-size: 4rem;
-    position: absolute;
-    top:2rem;
-    right: 8rem;
-    cursor: pointer;
-}
-</style>
-
-
-
-            <div class="row comment-respond">
-
-                <!-- START respond -->
-                <div id="respond" class="column">
-
-                    <h3>
-                    Add Comment 
-                    <span>Your email address will not be published.</span>
-                    </h3>
-
-                    <form name="contactForm" id="contactForm" method="post" action="" autocomplete="off">
-                        <fieldset>
-
-                            <div class="form-field">
-                                <input name="cName" id="cName" class="h-full-width h-remove-bottom" placeholder="Your Name" value="" type="text">
+    $query = mysqli_query($con, "select posts.id as pid,posts.post_title as post_title,posts.post_image,category.category_name as category,category.id as cid,subcategory.subcategory as subcategory,posts.post_details as postdetails,posts.posting_date as postingdate,posts.post_description as postdescription,posts.post_url as url from posts left join category on category.id=posts.category_id left join  subcategory on  subcategory.subcategory_id=posts.subcategory_id where posts.is_active=1 order by posts.id desc  LIMIT $offset, $no_of_records_per_page");
+    while ($row = mysqli_fetch_array($query)) {
+     ?>
+     
+    <div class="scrollblock">
+        <div class="container-fluid pt-10">
+            <div class="row justify-content-md-center ">
+                <div class="col-md-10 col-sm-12">
+                    <div class="card-columns">
+                        <div class="card card-hover h-100">
+                            <div class="card-body">
+                                <a href="single-post.php?nid=<?php echo htmlentities($row['pid']) ?>">
+                                    <img src="admin/postimages/<?php echo htmlentities($row['post_image']); ?>">
+                                    <div class="reveal h-100 p-2 d-flex ">
+                                        <div class="w-100 align-self-center">
+                                            <p><?php echo htmlentities($row['post_title']); ?> </p>
+                                        </div>
+                                    </div>
+                                </a>
                             </div>
-
-                            <div class="form-field">
-                                <input name="cEmail" id="cEmail" class="h-full-width h-remove-bottom" placeholder="Your Email" value="" type="text">
-                            </div>
-
-                            <div class="form-field">
-                                <input name="cWebsite" id="cWebsite" class="h-full-width h-remove-bottom" placeholder="Website" value="" type="text">
-                            </div>
-
-                            <div class="message form-field">
-                                <textarea name="cMessage" id="cMessage" class="h-full-width" placeholder="Your Message"></textarea>
-                            </div>
-
-                            <br>
-                            <input name="submit" id="submit" class="btn btn--primary btn-wide btn--large h-full-width" value="Add Comment" type="submit">
-
-                        </fieldset>
-                    </form> <!-- end form -->
-
+                        </div>
+                    </div>
                 </div>
-                <!-- END respond-->
-
-            </div> <!-- end comment-respond -->
-
-        </div> <!-- end comments-wrap -->
-
-
-    </section> <!-- end s-content -->
+            </div>
+        </div>
+    </div>
+    <?php }?>
 
 
     <!-- footer
     ================================================== -->
-    <?php include('includes/footer.php');?>
+    <?php include('includes/footer.php'); ?>
+
 
     <!-- Java Script
     ================================================== -->
@@ -232,3 +131,104 @@ body{
 </body>
 
 </html>
+<style>
+   .card {
+	border: 0;
+	border-radius: 0;
+    margin-top: 20%;
+}
+
+.card-img,
+.card-img-top {
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+}
+
+.card-body {
+	padding: 0;
+}
+
+.card-columns .card {
+	margin-bottom: 1.25rem;
+}
+
+@media (max-width: 991px) {
+	.card-columns {
+		column-count: 1;
+	}
+}
+
+@media (min-width: 992px) {
+	.card-columns {
+		column-count: 2;
+	}
+}
+
+@media (min-width: 1200px) {
+	.card-columns {
+		column-count: 3;
+	}
+}
+
+.card-hover img {
+	transition: filter .5s ease-in-out;
+	-webkit-filter: grayscale(0%);
+	/* Ch 23+, Saf 6.0+, BB 10.0+ */
+	filter: grayscale(0%);
+	/* FF 35+ */
+}
+
+.card-hover:hover img {
+	-webkit-filter: grayscale(100%);
+	/* Ch 23+, Saf 6.0+, BB 10.0+ */
+	filter: grayscale(100%);
+	/* FF 35+ */
+}
+
+.reveal p {
+	line-height: 125%;
+	font-size: 1.5rem;
+	text-align: center;
+}
+
+.card-hover .reveal {
+	visibility: hidden;
+	opacity: 0;
+	height: 0;
+	padding: 0;
+	position: absolute;
+	top: 0;
+	width: 100%;
+	background-color: black;
+	color: white;
+}
+
+.card-hover:hover .reveal {
+	height: auto;
+	visibility: visible;
+	opacity: 0.5;
+	transition: opacity 1s ease;
+	position: absolute;
+	top: 0;
+	background-color: black;
+	color: white;
+}
+
+@media (max-width: 767px) {
+	.card-hover .reveal,
+	.card-hover:hover .reveal {
+		visibility: visible;
+		opacity: 1;
+		position: relative;
+		width: 100%;
+		background-color: #ebeae9;
+		color: black;
+	}
+	.reveal p {
+		line-height: 125%;
+		font-size: 1.2rem;
+		text-align: left;
+		padding-top: 1rem;
+	}
+}
+</style>

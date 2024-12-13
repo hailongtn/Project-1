@@ -19,50 +19,27 @@
                     <h5>Site Links</h5>
 
                     <ul>
+                        <li><a href="index.php">Home</a></li>
+                        <li><a href="gallery.php">Gallery</a></li>
                         <li><a href="about.php">About Us</a></li>
-                        <li><a href="gallery">Blog</a></li>
-                        <li><a href="#0">FAQ</a></li>
-                        <li><a href="#0">Terms</a></li>
-                        <li><a href="#0">Privacy Policy</a></li>
+                        <li><a href="contact.php">Contact</a></li>
                     </ul>
 
                 </div> <!-- end s-footer__site-links -->  
 
                 <div class="column large-2 medium-3 tab-6 s-footer__social-links">
 
-                    <h5>Follow Us</h5>
+                    <h5>Contact Us</h5>
 
                     <ul>
-                        <li><a href="#0">Twitter</a></li>
-                        <li><a href="#0">Facebook</a></li>
-                        <li><a href="#0">Dribbble</a></li>
-                        <li><a href="#0">Pinterest</a></li>
-                        <li><a href="#0">Instagram</a></li>
+                      
+                        <li><a href="https://www.facebook.com/longc.392/">Facebook</a></li>
+                        <li><a href="https://www.instagram.com/lognc_/">Instagram</a></li>
                     </ul>
 
                 </div> <!-- end s-footer__social links --> 
 
-                <div class="column large-3 medium-6 tab-12 s-footer__subscribe">
-
-                    <h5>Sign Up for Newsletter</h5>
-
-                    <p>Signup to get updates on articles, interviews and events.</p>
-
-                    <div class="subscribe-form">
-                
-                        <form id="mc-form" class="group" novalidate="true">
-
-                            <input type="email" value="" name="dEmail" class="email" id="mc-email" placeholder="Your Email Address" required=""> 
-                
-                            <input type="submit" name="subscribe" value="subscribe" >
-                
-                            <label for="mc-email" class="subscribe-message"></label>
-                
-                        </form>
-
-                    </div>
-
-                </div> <!-- end s-footer__subscribe -->
+               
 
             </div> <!-- end row -->
 

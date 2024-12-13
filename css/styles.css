@@ -3442,15 +3442,17 @@ button::-moz-focus-inner, input::-moz-focus-inner {
     -ms-flex-align: center;
     -webkit-box-align: center;
     align-items: center;
-    position: absolute;
+    position: sticky;
     top: 0;
     left: 0;
+    background-color: black;
     
 
     
 }
 .s-header--opaque {
     background-color: black;
+    position: sticky;
 }
 
 /* -------------------------------------------------------------------
@@ -4449,7 +4451,7 @@ body.search-is-visible {
  *
  * ------------------------------------------------------------------- */
 .s-content {
-    --row-max-width: 1400px;
+    --row-max-width: 1700px;
     background-color: white;
     padding-top: calc(5.5 * var(--space));
 }

@@ -12,7 +12,7 @@ include('includes/config.php');
     <!--- basic page needs
     ================================================== -->
     <meta charset="utf-8">
-    <title>Category - Calvin</title>
+    <title>The Bridge | Search Pages</title>
     <meta name="description" content="">
     <meta name="author" content="">
 
@@ -59,26 +59,19 @@ include('includes/config.php');
     <!-- content
     ================================================== -->
     <section class="s-content">
-    <div class="s-bricks" style="margin: -7%;">
-            <div class="cntain">
-                <div class="topicheader">
-                    <h2 class=list-categories-title>
-                        <span>TOPICS </span>
-                    </h2>
-                </div>
-                <div class="topics">
-                    <?php $query = mysqli_query($con, "select id,category_name from category");
-                    while ($row = mysqli_fetch_array($query)) {
-                    ?>
-                        <a href="category.php?catid=<?php echo htmlentities($row['id']) ?>" class="topic"><?php echo htmlentities($row['category_name']); ?></a>
-                    <?php } ?>
-
-                </div>
-            </div>
 
         <!-- page header
         ================================================== -->
-    
+        <div class="s-pageheader">
+            <div class="row">
+                <div class="column large-12">
+                    <h1 class="page-title">
+                        <span class="page-title__small-type"></span>
+                        Search Pages
+                    </h1>
+                </div>
+            </div>
+        </div>
 
         <!-- end s-pageheader-->
         <!-- masonry
@@ -88,10 +81,12 @@ include('includes/config.php');
             <div class="masonry">
                 <div class="bricks-wrapper h-group">
                     <?php
-
-                    if ($_GET['catid'] != '') {
-                        $_SESSION['catid'] = intval($_GET['catid']);
+                    if ($_POST['searchtitle'] != '') {
+                        $st = $_SESSION['searchtitle'] = $_POST['searchtitle'];
                     }
+                    $st;
+
+
 
 
 
@@ -110,11 +105,9 @@ include('includes/config.php');
                     $total_pages = ceil($total_rows / $no_of_records_per_page);
 
 
-                    $query = mysqli_query($con, "select posts.id as pid,posts.post_title as post_title,posts.post_image,category.category_name as category,subcategory.subcategory as subcategory,posts.post_description as postdescription,posts.post_details as postdetails,posts.posting_date as postingdate,posts.post_url as url from posts left join category on category.id=posts.category_id left join  subcategory on  subcategory.subcategory_id=posts.subcategory_id where posts.category_id='" . $_SESSION['catid'] . "' and posts.is_active=1 order by posts.id desc LIMIT $offset, $no_of_records_per_page");
+                    $query = mysqli_query($con, "select posts.id as pid,posts.post_title as post_title,category.category_name as category,subcategory.subcategory as subcategory,posts.post_details as postdetails,posts.posting_date as postingdate,posts.post_url as url,posts.post_description as postdescription,posts.post_image from posts left join category on category.id=posts.category_id left join  subcategory on  subcategory.subcategory_id=posts.subcategory_id where posts.post_title like '%$st%' and posts.is_active=1 LIMIT $offset, $no_of_records_per_page");
 
                     $rowcount = mysqli_num_rows($query);
-
-
                     if ($rowcount == 0) {
                         echo "No record found";
                     } else {
@@ -122,7 +115,6 @@ include('includes/config.php');
 
 
                     ?>
-
 
 
 
@@ -142,14 +134,14 @@ include('includes/config.php');
                                         <div class="entry__meta">
                                             <span class="cat-links">
                                                 <a class="badge bg-success text-decoration-none link-light" href="category.php?catid=<?php echo htmlentities($row['cid']) ?>" style="color:#00000"><?php echo htmlentities($row['category']); ?></a>
-                                                <!--Subcategory--->
+                                                <!--subcategory--->
                                                 <a class="" style="color:#00000"><?php echo htmlentities($row['subcategory']); ?></a><br>
                                                 <a class="m-0"><small> Posted on <?php echo htmlentities($row['postingdate']);?></small></a>
                                             </span>
                                         </div>
                                     </div>
                                     <div class="entry__excerpt">
-                                        <p
+                                    <p
                                         class="badge bg-success text-decoration-none link-light" href="category.php?catid=<?php echo htmlentities($row['cid']) ?>" style="color:#00000"><?php echo htmlentities($row['postdescription']); ?>                                        
                                     </p>
                                     </div>
@@ -157,8 +149,8 @@ include('includes/config.php');
 
 
                             </article> <!-- end article -->
-                    <?php }
-                    } ?>
+                    <?php }} ?>
+                    
 
 
 

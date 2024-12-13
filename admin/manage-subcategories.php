@@ -1,11 +1,4 @@
-        <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
---><?php
+<?php
    session_start();
    include('includes/config.php');
    error_reporting(0);
@@ -17,14 +10,14 @@
    if($_GET['action']=='del' && $_GET['scid'])
    {
     $id=intval($_GET['scid']);
-    $query=mysqli_query($con,"update  tblsubcategory set Is_Active='0' where SubCategoryId='$id'");
+    $query=mysqli_query($con,"update  subcategory set is_active='0' where subcategory_id='$id'");
     $msg="Category deleted ";
    }
    // Code for restore
    if($_GET['resid'])
    {
     $id=intval($_GET['resid']);
-    $query=mysqli_query($con,"update  tblsubcategory set Is_Active='1' where SubCategoryId='$id'");
+    $query=mysqli_query($con,"update  subcategory set is_active='1' where subcategory_id='$id'");
     $msg="Category restored successfully";
    }
    
@@ -32,19 +25,12 @@
    if($_GET['action']=='perdel' && $_GET['scid'])
    {
     $id=intval($_GET['scid']);
-    $query=mysqli_query($con,"delete from   tblsubcategory  where SubCategoryId='$id'");
+    $query=mysqli_query($con,"delete from   subcategory  where subcategory_id='$id'");
     $delmsg="Category deleted forever";
    }
    
    ?>
-        <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+ 
         <?php include('includes/topheader.php');?>
         <!-- ========== Left Sidebar Start ========== -->
         <?php include('includes/leftsidebar.php');?>
@@ -65,7 +51,7 @@
                                         <a href="#">Admin</a>
                                     </li>
                                     <li>
-                                        <a href="#">SubCategory </a>
+                                        <a href="#">subCategory </a>
                                     </li>
                                     <li class="active">
                                         Manage SubCategories
@@ -75,14 +61,7 @@
                             </div>
                         </div>
                     </div>
-                    <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
                     <!-- end row -->
                     <div class="row">
                         <div class="col-sm-6">
@@ -97,14 +76,7 @@
                             </div>
                             <?php } ?>
                         </div>
-                        <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+ 
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="demo-box m-t-20">
@@ -128,21 +100,14 @@
                                             </thead>
                                             <tbody>
                                                 <?php 
-                                       $query=mysqli_query($con,"Select tblcategory.CategoryName as catname,tblsubcategory.Subcategory as subcatname,tblsubcategory.SubCatDescription as SubCatDescription,tblsubcategory.PostingDate as subcatpostingdate,tblsubcategory.UpdationDate as subcatupdationdate,tblsubcategory.SubCategoryId as subcatid from tblsubcategory join tblcategory on tblsubcategory.CategoryId=tblcategory.id where tblsubcategory.Is_Active=1");
+                                       $query=mysqli_query($con,"Select category.category_name as catname,subcategory.subcategory as subcatname,subcategory.subcat_description as subcat_description,subcategory.posting_date as subcatpostingdate,subcategory.updation_date as subcatupdationdate,subcategory.subcategory_id as subcatid from subcategory join category on subcategory.category_id=category.id where subcategory.is_active=1");
                                        $cnt=1;
                                        $rowcount=mysqli_num_rows($query);
                                        if($rowcount==0)
                                        {
                                        ?>
                                                 <tr>
-                                                    <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
                                                     <td colspan="7" align="center">
                                                         <h3 style="color:red">No record found</h3>
                                                     </td>
@@ -157,7 +122,7 @@
                                                     <th scope="row"><?php echo htmlentities($cnt);?></th>
                                                     <td><?php echo htmlentities($row['catname']);?></td>
                                                     <td><?php echo htmlentities($row['subcatname']);?></td>
-                                                    <td><?php echo htmlentities($row['SubCatDescription']);?></td>
+                                                    <td><?php echo htmlentities($row['subcat_description']);?></td>
                                                     <td><?php echo htmlentities($row['subcatpostingdate']);?></td>
                                                     <td><?php echo htmlentities($row['subcatupdationdate']);?></td>
                                                     <td><a href="edit-subcategory.php?scid=<?php echo htmlentities($row['subcatid']);?>" class="btn btn-primary btn-sm"><i class="fa fa-pencil"></i></a>
@@ -169,14 +134,7 @@
                                         }} ?>
                                             </tbody>
                                         </table>
-                                        <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
                                     </div>
                                 </div>
                             </div>
@@ -191,14 +149,7 @@
                                     <div class="table-responsive">
                                         <table class="table m-0 table-bordered" id="example1">
                                             <thead>
-                                                <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+                                               
                                                 <tr>
                                                     <th>#</th>
                                                     <th> Category</th>
@@ -211,7 +162,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php 
-                                       $query=mysqli_query($con,"Select tblcategory.CategoryName as catname,tblsubcategory.Subcategory as subcatname,tblsubcategory.SubCatDescription as SubCatDescription,tblsubcategory.PostingDate as subcatpostingdate,tblsubcategory.UpdationDate as subcatupdationdate,tblsubcategory.SubCategoryId as subcatid from tblsubcategory join tblcategory on tblsubcategory.CategoryId=tblcategory.id where tblsubcategory.Is_Active=0");
+                                       $query=mysqli_query($con,"Select category.category_name as catname,subcategory.subcategory as subcatname,subcategory.subcat_description as subcat_description,subcategory.posting_date as subcatpostingdate,subcategory.updation_date as subcatupdationdate,subcategory.subcategory_id as subcatid from subcategory join category on subcategory.category_id=category.id where subcategory.is_active=0");
                                        $cnt=1;
                                        $rowcount=mysqli_num_rows($query);
                                        if($rowcount==0)
@@ -229,21 +180,14 @@
                                           {
                                           ?>
                                                 <tr>
-                                                    <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
                                                     <th scope="row"><?php echo htmlentities($cnt);?></th>
                                                     <td><?php echo htmlentities($row['catname']);?></td>
                                                     <td><?php echo htmlentities($row['subcatname']);?></td>
-                                                    <td><?php echo htmlentities($row['SubCatDescription']);?></td>
+                                                    <td><?php echo htmlentities($row['subcat_description']);?></td>
                                                     <td><?php echo htmlentities($row['subcatpostingdate']);?></td>
                                                     <td><?php echo htmlentities($row['subcatupdationdate']);?></td>
-                                                    <td><a href="manage-subcategories.php?resid=<?php echo htmlentities($row['subcatid']);?>" class="btn btn-primary btn-sm"><i class="ion-arrow-return-right" title="Restore this SubCategory"></i></a>
+                                                    <td><a href="manage-subcategories.php?resid=<?php echo htmlentities($row['subcatid']);?>" class="btn btn-primary btn-sm"><i class="ion-arrow-return-right" title="Restore this subCategory"></i></a>
                                                         &nbsp;<a href="manage-subcategories.php?scid=<?php echo htmlentities($row['subcatid']);?>&&action=perdel" class="btn btn-danger btn-sm"> <i class="fa fa-trash-o"></i></a>
                                                     </td>
                                                 </tr>
@@ -261,13 +205,6 @@
                 </div>
                 <!-- content -->
                 <?php include('includes/footer.php');?>
-                <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
 
                 <?php } ?>

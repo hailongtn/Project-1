@@ -1,8 +1,7 @@
 
 <footer class="foot text-center" style=" position: sticky;
   top: 0;">
-    <?php echo date('Y');?> © Design and Developed by
-    <a href=" https://developerrony.com"> MH RONY</a>
+    
 </footer>
 </div>
 </div>
@@ -112,22 +111,7 @@ function googleTranslateElementInit() {
     right: 100px;
 }
 </style>
-<!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
 </body>
-<!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
 
 </html>

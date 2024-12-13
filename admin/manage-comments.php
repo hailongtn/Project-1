@@ -95,19 +95,12 @@
                                             </thead>
                                             <tbody>
                                                 <?php 
-                           $query=mysqli_query($con,"Select comments.id,  comments.name,comments.email,comments.posting_date,comments.comment,posts.id as postid,posts.post_title from  comments join posts on posts.id=comments.postId where comments.status=1");
+                           $query=mysqli_query($con,"Select comments.id,  comments.name,comments.email,comments.posting_date,comments.comment,posts.id as postid,posts.post_title from  comments join posts on posts.id=comments.post_id where comments.status=1");
                            $cnt=1;
                            while($row=mysqli_fetch_array($query))
                            {
                            ?>
-                                                <!--  
-                           Author Name: MH RONY.
-                           GigHub Link: https://github.com/dev-mhrony
-                           Facebook Link:https://www.facebook.com/dev.mhrony
-                           Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                           for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                           Visit My Website : developerrony.com 
-                         -->
+                      
                                                 <tr>
                                                     <th scope="row"><?php echo htmlentities($cnt);?></th>
                                                     <td><?php echo htmlentities($row['name']);?></td>
@@ -120,15 +113,7 @@
                               echo "Approved";
                               endif;
                               ?></span></td>
-                                                    <!--  
-                              Author Name: MH RONY.
-                              GigHub Link: https://github.com/dev-mhrony
-                              Facebook Link:https://www.facebook.com/dev.mhrony
-                              Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                              for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                              Visit My Website : developerrony.com 
-                            -->
-                                                    <td><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><?php echo htmlentities($row['post_title']);?></a> </td>
+                                       <td><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><?php echo htmlentities($row['post_title']);?></a> </td>
                                                     <td><?php echo htmlentities($row['posting_date']);?></td>
                                                     <td width="100px">
                                                         <?php if($st==0):?>

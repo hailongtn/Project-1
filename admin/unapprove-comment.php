@@ -1,11 +1,4 @@
-        <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
---><?php
+<?php
    session_start();
    include('includes/config.php');
    error_reporting(0);
@@ -17,14 +10,14 @@
    if( $_GET['disid'])
    {
     $id=intval($_GET['disid']);
-    $query=mysqli_query($con,"update tblcomments set status='0' where id='$id'");
+    $query=mysqli_query($con,"update comments set status='0' where id='$id'");
     $msg="Comment unapprove ";
    }
    // Code for restore
    if($_GET['appid'])
    {
     $id=intval($_GET['appid']);
-    $query=mysqli_query($con,"update tblcomments set status='1' where id='$id'");
+    $query=mysqli_query($con,"update comments set status='1' where id='$id'");
     $msg="Comment approved";
    }
    
@@ -32,19 +25,12 @@
    if($_GET['action']=='del' && $_GET['rid'])
    {
     $id=intval($_GET['rid']);
-    $query=mysqli_query($con,"delete from  tblcomments  where id='$id'");
+    $query=mysqli_query($con,"delete from  comments  where id='$id'");
     $delmsg="Comment deleted forever";
    }
    
    ?>
-        <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
         <?php include('includes/topheader.php');?>
         <!-- ========== Left Sidebar Start ========== -->
         <?php include('includes/leftsidebar.php');?>
@@ -75,14 +61,6 @@
                             </div>
                         </div>
                     </div>
-                    <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
                     <!-- end row -->
                     <div class="row">
                         <div class="col-sm-6">
@@ -104,15 +82,7 @@
                                         <table class="table m-0 table-bordered" id="example">
                                             <thead>
                                                 <tr>
-                                                    <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
-                                                    <th>#</th>
+                                       <th>#</th>
                                                     <th> Name</th>
                                                     <th>Email Id</th>
                                                     <th>Comment</th>
@@ -124,7 +94,7 @@
                                             </thead>
                                             <tbody>
                                                 <?php 
-                                       $query=mysqli_query($con,"Select tblcomments.id,  tblcomments.name,tblcomments.email,tblcomments.postingDate,tblcomments.comment,tblposts.id as postid,tblposts.PostTitle from  tblcomments join tblposts on tblposts.id=tblcomments.postId where tblcomments.status=0");
+                                       $query=mysqli_query($con,"Select comments.id,  comments.name,comments.email,comments.posting_date,comments.comment,posts.id as post_id,posts.post_title from  comments join posts on posts.id=comments.post_id where comments.status=0");
                                        $cnt=1;
                                        while($row=mysqli_fetch_array($query))
                                        {
@@ -141,16 +111,9 @@
                                           echo "Approved";
                                           endif;
                                           ?></span></td>
-                                                    <!--  
-                                          Author Name: MH RONY.
-                                          GigHub Link: https://github.com/dev-mhrony
-                                          Facebook Link:https://www.facebook.com/dev.mhrony
-                                          Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                                          for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                                          Visit My Website : developerrony.com 
-                                        -->
-                                                    <td><a href="edit-post.php?pid=<?php echo htmlentities($row['postid']);?>"><?php echo htmlentities($row['PostTitle']);?></a> </td>
-                                                    <td><?php echo htmlentities($row['postingDate']);?></td>
+                                     
+                                                    <td><a href="edit-post.php?pid=<?php echo htmlentities($row['post_id']);?>"><?php echo htmlentities($row['post_title']);?></a> </td>
+                                                    <td><?php echo htmlentities($row['posting_date']);?></td>
                                                     <td width="100px">
                                                         <?php if($st=='0'):?>
                                                         <a href="unapprove-comment.php?disid=<?php echo htmlentities($row['id']);?>" title="Disapprove this comment"><i class="ion-arrow-return-right" style="color: #29b6f6;"></i></a>
@@ -163,14 +126,7 @@
                                                 <?php
                                        $cnt++;
                                         } ?>
-                                                <!--  
-                                        Author Name: MH RONY.
-                                        GigHub Link: https://github.com/dev-mhrony
-                                        Facebook Link:https://www.facebook.com/dev.mhrony
-                                        Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-                                        for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-                                        Visit My Website : developerrony.com 
-                                      -->
+                                     
                                             </tbody>
                                         </table>
                                     </div>
@@ -191,13 +147,5 @@
                 </div>
                 <!-- content -->
                 <?php include('includes/footer.php');?>
-                <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
 
                 <?php } ?>

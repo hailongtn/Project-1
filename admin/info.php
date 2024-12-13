@@ -1,11 +1,4 @@
-        <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
---><?php 
+<?php 
 session_start();
 include('includes/config.php');
 error_reporting(0);
@@ -31,14 +24,7 @@ $error="Something went wrong . Please try again.";
 
 }
 ?>
-        <!--  
-Author Name: MH RONY.
-GigHub Link: https://github.com/dev-mhrony
-Facebook Link:https://www.facebook.com/dev.mhrony
-Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-Visit My Website : developerrony.com 
--->
+
 
         <?php include('includes/topheader.php');?>
         <!-- ========== Left Sidebar Start ========== -->
@@ -54,14 +40,7 @@ Visit My Website : developerrony.com
             <!-- Start content -->
             <div class="content">
                 <div class="container">
-                    <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
 
                     <div class="row">
                         <div class="col-xs-12">
@@ -81,14 +60,7 @@ Visit My Website : developerrony.com
                         </div>
                     </div>
                     <!-- end row -->
-                    <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
                     <div class="row">
                         <div class="col-sm-6">
                             <!---Success Message--->
@@ -104,14 +76,7 @@ Visit My Website : developerrony.com
                                 <strong>Oh snap!</strong> <?php echo htmlentities($error);?>
                             </div>
                             <?php } ?>
-                            <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
 
                         </div>
                     </div>
@@ -122,14 +87,7 @@ while($row=mysqli_fetch_array($query))
 {
 
 ?>
-                    <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+ 
                     <div class="row">
                         <div class="col-md-10 col-md-offset-1">
                             <div class="p-6">
@@ -142,14 +100,6 @@ while($row=mysqli_fetch_array($query))
 
 
 
-                                        <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
 
 
 
@@ -172,14 +122,7 @@ while($row=mysqli_fetch_array($query))
                     </div>
                     <!-- end row -->
 
-                    <!--  
-  Author Name: MH RONY.
-  GigHub Link: https://github.com/dev-mhrony
-  Facebook Link:https://www.facebook.com/dev.mhrony
-  Youtube Link: https://www.youtube.com/channel/UChYhUxkwDNialcxj-OFRcDw
-  for any PHP, Laravel, Python, Dart, Flutter work contact me at developer.mhrony@gmail.com  
-  Visit My Website : developerrony.com 
--->
+
 
                 </div> <!-- container -->
 
