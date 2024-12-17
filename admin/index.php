@@ -59,7 +59,7 @@ echo "<script>alert('Invalid Details');</script>";
         <div class="container m-t-50">
             <div class="row align-items-center m-t-50">
                 <div class="col-md-8 text-center">
-                    <img src="assets\images\Golden Gate Bridge USA San Francisco.webp" width="auto">
+                    <img src="assets\images\Golden Gate Bridge USA San Francisco.webp" width="70%">
                 </div>
                 <div class="col-md-4 ">
 
@@ -69,7 +69,7 @@ echo "<script>alert('Invalid Details');</script>";
                             <div class="account-logo-box">
                                 <h2 class="text-uppercase">
                                     <a href="index.php" class="text-success">
-                                        <span><img src="admin\assets\images\logo1.svg" alt="" width="350px"></span>
+                                        
                                     </a>
                                 </h2>
                                 <p>Please sign-in to your account and start the adventure</p>

@@ -179,14 +179,13 @@ if ($result->num_rows > 0) {
                             <div class="s-content__pagenav">
                                 <div class="prev-nav">
                                     <a href="#" rel="prev">
-                                        <span>Previous</span>
-                                        Tips on Minimalist Design
+                                        <span></span>
+                                        
                                     </a>
                                 </div>
                                 <div class="next-nav">
-                                    <a href="#" rel="next">
-                                        <span>Next</span>
-                                        A Practical Guide to a Minimalist Lifestyle.
+                                    <a href="index.php" rel="next">
+                                        <span>Home</span>
                                     </a>
                                 </div>
                             </div> <!-- end s-content__pagenav -->

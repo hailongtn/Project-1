@@ -54,13 +54,13 @@ include('includes/config.php');
     <header class="s-header s-header--opaque">
         <?php include('includes/header.php'); ?>
     </header> <!-- end s-header -->
-
+       
 
     <!-- content
     ================================================== -->
     <section class="s-content">
-    <div class="s-bricks" style="margin: -7%;">
-            <div class="cntain">
+    <div class="s-bricks" style="margin: -10%; padding-top: 1px">
+            <div class="cntain" style=": -10%" >
                 <div class="topicheader">
                     <h2 class=list-categories-title>
                         <span>TOPICS </span>
@@ -75,6 +75,31 @@ include('includes/config.php');
 
                 </div>
             </div>
+
+    <?php 
+    if(isset($_GET['id'])){
+        $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
+        $query ="SELECT * FROM category WHERE id=$id";
+        $result = mysqli_querry($con,$query);
+        $category =mysqli_fetch_assoc($result);
+    }
+    ?>
+
+
+
+            <div class="s-pageheader">
+            <div class="row">
+                <div class="column large-12">
+                    <h1 class="page-title" style="margin: ">
+                        <span class="page-title__small-type" style="padding-top:50px"></span>
+                                    <?=$category['category_name']?>
+                    </h1>   
+                </div>
+            </div>
+        </div>
+
+
+
 
         <!-- page header
         ================================================== -->

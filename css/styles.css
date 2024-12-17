@@ -4451,7 +4451,7 @@ body.search-is-visible {
  *
  * ------------------------------------------------------------------- */
 .s-content {
-    --row-max-width: 1700px;
+    --row-max-width: 1400px;
     background-color: white;
     padding-top: calc(5.5 * var(--space));
 }
@@ -4510,11 +4510,15 @@ body.search-is-visible {
     max-width: 1080px;
     margin: 0 auto var(--vspace-2_5);
     position: relative;
+    margin-top: -12%;
 }
 
 .s-content__media img {
     vertical-align: bottom;
     margin-bottom: 0;
+    
+    
+    
 }
 
 /* ------------------------------------------------------------------- 
@@ -5347,5 +5351,11 @@ body.search-is-visible {
 }
 .color_text {
     color: #333;
+}
+.h2.page-heading{
+    margin: 5px 0 30px;
+    padding:0 5px 10px;
+    border-bottom: 2px solid #f000
+    
 }
 
