@@ -31,7 +31,7 @@ CREATE TABLE `admin` (
 
 --
 -- Dumping data for table `admin`
-INSERT INTO `admin` (`id`, `a dmin_username`, `admin_password`, `admin_emailid`, `user_type`, `creation_date`, `updation_date`) VALUES
+INSERT INTO `admin` (`id`, `admin_username`, `admin_password`, `admin_emailid`, `user_type`, `creation_date`, `updation_date`) VALUES
 (1, 'admin', '123', 'admin@gmail.com', 1, '2024-12-12 18:30:00', '2024-12-12 07:16:37'),
 (2, 'admin1', '123', 'admin1@gmail.com', 1, '2024-12-12 18:30:00', '2024-12-12 07:16:37');
 
