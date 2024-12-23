@@ -4,7 +4,7 @@
 
 
 <head>
-    <title>Live News Portal By MH RONY.</title>
+    <title>Bridge Admin .</title>
     <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
 
     <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />

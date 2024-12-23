@@ -67,8 +67,8 @@
                 </div>
               
                 <a href="manage-categories.php">
-                    <div class="col-lg-2 col-md-2 col-sm-6">
-                        <div class="card-box widget-box-one text-center">
+                    <div class="col-lg-4 col-md-2 col-sm-6">
+                        <div class="card-box widget-box-one text-center" width:>
                             <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
                             <div class="wigdet-one-content">
                                 <p class="m-0 text-secondary" title="Statistics">Categories Listed</p>
@@ -82,9 +82,9 @@
                 </a>
                 <!-- end col -->
                 <a href="manage-posts.php">
-                    <div class="col-lg-2 col-md-2 col-sm-6">
+                    <div class="col-lg-4 col-md-2 col-sm-6" >
                         <div class="card-box widget-box-one text-center">
-                            <i class="mdi mdi-layers widget-one-icon"></i>
+                            <i class="mdi mdi-chart-areaspline widget-one-icon"></i>
                             <div class="wigdet-one-content">
                                 <p class="m-0 text-secondary" title="User This Month">Live News</p>
                                 <?php $query=mysqli_query($con,"select * from posts where is_active=1");

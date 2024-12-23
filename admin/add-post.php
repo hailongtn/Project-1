@@ -23,7 +23,7 @@
    // get the image extension
    $extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
    // allowed extensions
-   $allowed_extensions = array(".jpg","jpeg",".png",".gif", ".PNG","JPEG");
+   $allowed_extensions = array(".jpg","jpeg",".png",".gif", ".PNG",);
    // Validation for allowed extensions .in_array() function searches an array for a specific value.
    if(!in_array($extension,$allowed_extensions))
    {

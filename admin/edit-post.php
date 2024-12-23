@@ -13,12 +13,13 @@
    $catid=$_POST['category'];
    $subcatid=$_POST['subcategory'];
    $post_details=$_POST['postdescription'];
+   $post_description=$_POST['postsubdescription'];
    $lastuptdby=$_SESSION['login'];
    $arr = explode(" ",$post_title);
    $url=implode("-",$arr);
    $status=1;
    $postid=intval($_GET['pid']);
-   $query=mysqli_query($con,"update posts set post_title='$post_title',category_id='$catid',subcategory_id='$subcatid',post_details='$post_details',post_url='$url',is_active='$status',last_updatedby='$lastuptdby' where id='$postid'");
+   $query=mysqli_query($con,"update posts set post_title='$post_title',category_id='$catid',subcategory_id='$subcatid',post_details='$post_details',post_url='$url',is_active='$status',last_updatedby='$lastuptdby',post_description='$post_description' where id='$postid'");
    if($query)
    {
    $msg="Post updated ";
@@ -94,7 +95,7 @@ function getSubCat(val) {
 -->
             <?php
                      $postid=intval($_GET['pid']);
-                     $query=mysqli_query($con,"select posts.id as postid,posts.post_image,posts.post_title as title,posts.post_details,category.category_name as category,category.id as catid,subcategory.subcategory_id as subcatid,subcategory.subcategory as subcategory from posts left join category on category.id=posts.category_id left join subcategory on subcategory.subcategory_id=posts.subcategory_id where posts.id='$postid' and posts.is_active=1 ");
+                     $query=mysqli_query($con,"select posts.id as postid,posts.post_image,posts.post_title as title,posts.post_details,posts.post_description,category.category_name as category,category.id as catid,subcategory.subcategory_id as subcatid,subcategory.subcategory as subcategory from posts left join category on category.id=posts.category_id left join subcategory on subcategory.subcategory_id=posts.subcategory_id where posts.id='$postid' and posts.is_active=1 ");
                      while($row=mysqli_fetch_array($query))
                      {
                      ?>
@@ -129,6 +130,14 @@ function getSubCat(val) {
                         <div class="card-box">
                             <h4 class="m-b-30 m-t-0 header-title"><b>Post Details</b></h4>
                             <textarea class="summernote" name="postdescription" required><?php echo htmlentities($row['post_details']);?></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-12">
+                        <div class="card-box">
+                            <h4 class="m-b-30 m-t-0 header-title"><b>Post Description</b></h4>
+                            <textarea class="summernote" name="postsubdescription" required><?php echo htmlentities($row['post_description']);?></textarea>
                         </div>
                     </div>
                 </div>

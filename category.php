@@ -76,27 +76,7 @@ include('includes/config.php');
                 </div>
             </div>
 
-    <?php 
-    if(isset($_GET['id'])){
-        $id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-        $query ="SELECT * FROM category WHERE id=$id";
-        $result = mysqli_querry($con,$query);
-        $category =mysqli_fetch_assoc($result);
-    }
-    ?>
-
-
-
-            <div class="s-pageheader">
-            <div class="row">
-                <div class="column large-12">
-                    <h1 class="page-title" style="margin: ">
-                        <span class="page-title__small-type" style="padding-top:50px"></span>
-                                    <?=$category['category_name']?>
-                    </h1>   
-                </div>
-            </div>
-        </div>
+   
 
 
 
